@@ -98,7 +98,7 @@ object Hello extends App {
   println(s"fstring has size: ${fstring.size}")
 
   val page = Page("This is a test", process(fstring, 90))
-  val file = File("./target/output.html")
+  val file = File("./target/index.html")
     .createIfNotExists(createParents = true)
     .write(page.template)
   println("fin")
