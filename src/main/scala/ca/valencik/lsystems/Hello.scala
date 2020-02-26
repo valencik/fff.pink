@@ -1,5 +1,8 @@
 package ca.valencik.lsystems
+
 import scala.annotation.tailrec
+import better.files._
+import java.io.{File => JFile}
 
 object Writer {
   import java.nio.file.{Paths, Files, StandardOpenOption}
@@ -95,6 +98,8 @@ object Hello extends App {
   println(s"fstring has size: ${fstring.size}")
 
   val page = Page("This is a test", process(fstring, 90))
-  Writer.write("./output.html", page.template)
+  val file = File("./target/output.html")
+    .createIfNotExists(createParents = true)
+    .write(page.template)
   println("fin")
 }

@@ -1,4 +1,5 @@
-lazy val ScalaTestVersion = "3.0.8"
+lazy val betterFilesVersion = "3.8.0"
+lazy val scalaTestVersion   = "3.1.1"
 
 lazy val root = (project in file(".")).settings(
   inThisBuild(
@@ -11,6 +12,7 @@ lazy val root = (project in file(".")).settings(
   ),
   name := "lsystems",
   libraryDependencies ++= Seq(
-    "org.scalatest" %% "scalatest" % ScalaTestVersion % Test
+    "com.github.pathikrit" %% "better-files" % betterFilesVersion,
+    "org.scalatest"        %% "scalatest"    % scalaTestVersion % Test
   )
 )
